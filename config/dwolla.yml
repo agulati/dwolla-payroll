@@ -1,0 +1,14 @@
+development:
+  url: "http://uat.dwolla.com"
+  client_secret: "C+gmnBgguNZ0LZI1XCSYh50pJLzcTGobGxsv++PJY8/fWJrT5u"
+  client_key: "VeE+aHvf/fFtD4eiN81WqnKk+AB75mrFWgDx4VxsNIxnybsl9g"
+
+test:
+  url: "http://uat.dwolla.com"
+  client_secret: "C+gmnBgguNZ0LZI1XCSYh50pJLzcTGobGxsv++PJY8/fWJrT5u"
+  client_key: "VeE+aHvf/fFtD4eiN81WqnKk+AB75mrFWgDx4VxsNIxnybsl9g"
+
+production:
+  url: "http://uat.dwolla.com"
+  client_secret: "C+gmnBgguNZ0LZI1XCSYh50pJLzcTGobGxsv++PJY8/fWJrT5u"
+  client_key: "VeE+aHvf/fFtD4eiN81WqnKk+AB75mrFWgDx4VxsNIxnybsl9g"
