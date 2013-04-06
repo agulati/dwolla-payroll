@@ -34,4 +34,7 @@ DwollaPayroll::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Set application log level
+  config.log_level = :debug
 end
