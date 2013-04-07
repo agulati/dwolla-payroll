@@ -1,5 +1,5 @@
 development:
-  url: "http://uat.dwolla.com"
+  url: "http://uat.dwolla.com/oauth/"
   client_secret: "C+gmnBgguNZ0LZI1XCSYh50pJLzcTGobGxsv++PJY8/fWJrT5u"
   client_key: "VeE+aHvf/fFtD4eiN81WqnKk+AB75mrFWgDx4VxsNIxnybsl9g"
 
