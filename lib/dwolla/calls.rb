@@ -3,11 +3,8 @@ module Dwolla
     require 'rest_client'
 
     def get_request(uri, params = {})
-      if params[:page].present?
-        resource = make_request(uri, "#{params[:query]}&page=#{params[:page]}")
-      else
-        resource = make_request(uri, "#{params[:query]}")
-      end
+      log_call("GET REQUEST: #{DWOLLA_URL}/#{uri}#{query_string(params)}")
+      resource = RestClient::Resource.new("#{DWOLLA_URL}/#{uri}#{query_string(params)}")
       response = resource.get{|res, req, result| res}
       log_call("GET RESPONSE: " + (response ? response : "No response received."))
       JSON.parse(response)
@@ -17,14 +14,9 @@ module Dwolla
       error_hash
     end
 
-    def make_request(uri, query_string)
-      log_call("GET REQUEST: #{API_BASE_URL}/#{uri}.json/?#{query_string}")
-      RestClient::Resource.new("#{API_BASE_URL}/#{uri}.json/?#{query_string}")
-    end
-
     def post_request(uri, params = {})
-      log_call("POST REQUEST: #{API_BASE_URL}/#{uri}.json")
-      resource = RestClient::Resource.new("#{API_BASE_URL}/#{uri}.json", timeout: 120, open_timeout: 120)
+      log_call("POST REQUEST: #{DWOLLA_URL}/#{uri}")
+      resource = RestClient::Resource.new("#{DWOLLA_URL}/#{uri}")
       response = resource.post(params){|res, req, result| res}
       log_call("POST RESPONSE: " + (response ? response : "No response received."))
       JSON.parse(response)
@@ -35,8 +27,8 @@ module Dwolla
     end
 
     def put_request(uri, params = {})
-      log_call("PUT REQUEST: #{API_BASE_URL}/#{uri}.json")
-      resource = RestClient::Resource.new("#{API_BASE_URL}/#{uri}.json", timeout: 420, open_timeout: 420)
+      log_call("PUT REQUEST: #{DWOLLA_URL}/#{uri}")
+      resource = RestClient::Resource.new("#{DWOLLA_URL}/#{uri}")
       response = resource.put(params){|res, req, result| res}
       log_call("PUT RESPONSE: " + (response ? response : "No response received."))
       JSON.parse(response)
@@ -46,9 +38,9 @@ module Dwolla
       error_hash
     end
 
-    def delete_request(uri, id)
-      log_call("DELETE REQUEST: #{API_BASE_URL}/#{uri}/#{id}.json")
-      resource = RestClient::Resource.new("#{API_BASE_URL}/#{uri}/#{id}.json")
+    def delete_request(uri)
+      log_call("DELETE REQUEST: #{DWOLLA_URL}/#{uri}")
+      resource = RestClient::Resource.new("#{DWOLLA_URL}/#{uri}")
       response = resource.delete {|response, request, result| response }
       log_call("DELETE RESPONSE: " + (response ? response : "No response received."))
       JSON.parse(response)
@@ -58,7 +50,10 @@ module Dwolla
       error_hash
     end
 
-    private
+    def query_string(params)
+      return "" unless params && params.is_a?(Hash) && params.keys.count > 0
+      "?" + params.map{|k,v| "#{CGI.escape(k)}=#{CGI.escape(v)}"}.join("&")
+    end
 
     def log_call(log_message)
 
