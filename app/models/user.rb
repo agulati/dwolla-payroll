@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   	Salary.current_for(self)
   end
 
+  def withholding
+    Withholding.current_for(self)
+  end
+
   # GROUP LOGIN
   def set_password(pass)
     self.salt = rand(10000000).to_s
