@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   		@user = User.find(session[:user_id])
   	else
   		session[:redirect_to] = request.fullpath
-  		redirect_to "/login?redirect_to=#{request.fullpath}"
+  		redirect_to root_path
   	end
   end
 end

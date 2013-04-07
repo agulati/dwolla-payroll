@@ -1,13 +1,6 @@
 class User < ActiveRecord::Base
-<<<<<<< HEAD
-<<<<<<< HEAD
-  attr_accessible :oauth_token, :dwolla_id
-=======
-  # attr_accessible :title, :body
->>>>>>> Add models & controllers
-=======
   # Protected attributes
-  attr_protected :password_hash, :salt, :auth_key, :dwolla_id, :active, :last_login
+  attr_protected :password_hash, :salt, :auth_key, :dwolla_id, :oauth_token, :active, :last_login
 
   # Validations
   validates :first_name, :presence => true, :length => { :minimum => 2 }
@@ -26,12 +19,11 @@ class User < ActiveRecord::Base
   has_many :withholdings
   has_many :salaries
   has_many :payments
-<<<<<<< HEAD
-  
->>>>>>> More Models
-=======
 
   # methods
+  def salary
+  	Salary.current_for(self)
+  end
 
   # GROUP LOGIN
   def set_password(pass)
@@ -62,5 +54,4 @@ class User < ActiveRecord::Base
     1.upto(len) { |i| newpass << chars[rand(chars.size-1)] }
     return newpass
   end
->>>>>>> Add Mailer and Controllers
 end

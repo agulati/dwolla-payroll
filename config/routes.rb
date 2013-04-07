@@ -1,6 +1,4 @@
 DwollaPayroll::Application.routes.draw do
-<<<<<<< HEAD
-=======
   get "user/create"
 
   get "user/edit"
@@ -15,10 +13,10 @@ DwollaPayroll::Application.routes.draw do
 
   get "login/reset"
 
+  resources :user
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
->>>>>>> Add models & controllers
-
   post "login" => "users#login"
   match "dashboard" => "users#dashboard"
 
