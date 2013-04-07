@@ -50,10 +50,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.22)
     multi_json (1.7.2)
-<<<<<<< HEAD
-=======
-    pg (0.15.0)
->>>>>>> Add models & controllers
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -86,12 +82,8 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-<<<<<<< HEAD
     sqlite3 (1.3.7)
-    thin (1.5.0)
-=======
     thin (1.5.1)
->>>>>>> Add models & controllers
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
@@ -101,7 +93,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    uglifier (2.0.0)
+    uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
 
