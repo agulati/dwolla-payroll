@@ -16,7 +16,7 @@ gem 'rack', '1.4.1'
 
 gem 'jquery-rails'
 
-gem 'pg'
+gem 'sqlite3'
 gem 'thin'
 gem 'foreman'
 
