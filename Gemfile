@@ -12,6 +12,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rack', '1.4.1'
+
 gem 'jquery-rails'
 
 gem 'pg'
