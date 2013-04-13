@@ -9,4 +9,10 @@ class PayItem < ActiveRecord::Base
 
   # Relations
   belongs_to :user
+
+  # Scopes
+  scope :active, where(:active => true)
+  scope :within_daterange, lambda do |start, fin|
+    self.where('effective_date > ? and effective_date < ?', start, fin)
+  end
 end

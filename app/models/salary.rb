@@ -28,6 +28,19 @@ class Salary < ActiveRecord::Base
   end
   # END GROUP USER CENTRIC
 
+  # INFORMATION FOR API
+  def periods_per_month
+    case self.pay_period
+    when "WEEKLY"
+      4
+    when "BIWEEKLY"
+      2
+    when "MONTHLY"
+      1
+    end
+  end
+
+  # END GROUP API
   
 
 end

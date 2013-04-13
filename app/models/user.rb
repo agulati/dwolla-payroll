@@ -29,4 +29,9 @@ class User < ActiveRecord::Base
   def withholding
     Withholding.current_for(self)
   end
+
+  # Returns the sum of pretax earnings in the current year
+  def ytd_earnings
+    self.pay_items.active.within_daterange(Date.civil(Date.today.year - 1), Time.now).sum(:total)
+  end
 end
